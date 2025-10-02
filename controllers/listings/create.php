@@ -1,0 +1,8 @@
+<?php  
+
+loadView('listings/create')
+?>
+
+
+
+
