@@ -17,12 +17,13 @@ function basePath($path=""){
  */
 
 
-function loadView($name){
-   $viewPath = basePath("views/{$name}.view.php");
+function loadView($name, $data=[]){
+   $viewPath = basePath("App/views/{$name}.view.php");
 
 
 
    if(file_exists($viewPath)){
+    extract($data);
     require $viewPath;
    }else{
     echo "View {$name} not found";
@@ -37,15 +38,20 @@ function loadView($name){
  */
 
 
-function loadPartial($name){
-    $viewPart =  basePath("views/partials/{$name}.php");
+function loadPartial($name,$data = []){
+    $viewPart =  basePath("App/views/partials/{$name}.php");
 
     
    if(file_exists($viewPart)){
+    extract($data);
     require $viewPart;
    }else{
     echo "View {$name} not found";
    }
+}
+
+function formatsalary($salary){
+    return '$' . number_format(floatval($salary));
 }
 
 
@@ -72,6 +78,26 @@ function inspectDie($value){
     echo "</pre>";
 }
 
+
+/**
+ * Sanitize data
+ * @param string $value
+ * @return string
+ */
+function sanitize($value){
+    return filter_var($value,FILTER_SANITIZE_SPECIAL_CHARS);
+}
+
+/**
+ * Redirect page
+ * @param string $url
+ * @return void
+ */
+
+function redirect($url){
+    header("Location:{$url}");
+    exit;
+}
 
 ?>
 

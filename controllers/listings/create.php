@@ -1,8 +1,0 @@
-<?php  
-
-loadView('listings/create')
-?>
-
-
-
-

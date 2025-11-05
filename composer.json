@@ -1,0 +1,16 @@
+{
+    "name": "fuadmahmudov/workopia-php",
+    "description" : "Job listing website",
+    "authors": [
+        {
+            "name": "Fuad Mahmudov",
+            "email": "fuadmahmudov123@caspi.com"
+        }
+    ],
+    "autoload":{
+        "psr-4": {
+            "Framework\\" : "Framework/",
+            "App\\":"App/"
+        }
+    }
+}
